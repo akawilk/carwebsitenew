@@ -1,7 +1,6 @@
 node('Ubuntu-Appserver-Rebuilt')
 {
 
-def Appserver
 stage('Cloning Git')
 {
     /*Let's make sure we have the repository cloned to our workspace */
@@ -12,7 +11,7 @@ stage('Build-and-Tag')
 {
     /* This builds the actual image;
          * This is synonymous to docker build on the command line */
-    app.docker.build( 'akawilk/car_docker_repo')
+    app = docker.build('akawilk/car_docker_repo')
 }
 
 stage('Post-to-dockerhub')
